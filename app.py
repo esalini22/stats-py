@@ -74,7 +74,47 @@ def mean():
     if filename.endswith('.txt'):
         print(dataframe[0].mean())
     elif filename.endswith('.xls') or filename.endswith('.xlsx'):
-        print("PM2.5: "+dataframe["PM2.5"].mean())
+        print("PM2.5: "+str(dataframe["PM2.5"].mean()))
+    print()
+
+def maxValue():
+    print("max value")
+    if filename.endswith('.txt'):
+        print(dataframe[0].max())
+    elif filename.endswith('.xls') or filename.endswith('.xlsx'):
+        print("PM2.5: "+str(dataframe["PM2.5"].max()))
+    print()
+
+def minValue():
+    print("max value")
+    if filename.endswith('.txt'):
+        print(dataframe[0].min())
+    elif filename.endswith('.xls') or filename.endswith('.xlsx'):
+        print("PM2.5: "+str(dataframe["PM2.5"].min()))
+    print()
+
+def standardDeviation():
+    print("standard deviation")
+    if filename.endswith('.txt'):
+        print(dataframe[0].std())
+    elif filename.endswith('.xls') or filename.endswith('.xlsx'):
+        print("PM2.5: "+str(dataframe["PM2.5"].std()))
+    print()
+
+def skewness():
+    print("skewness")
+    if filename.endswith('.txt'):
+        print(dataframe[0].skew())
+    elif filename.endswith('.xls') or filename.endswith('.xlsx'):
+        print("PM2.5: "+str(dataframe["PM2.5"].skew()))
+    print()
+
+def kurtosis():
+    print("kurtosis")
+    if filename.endswith('.txt'):
+        print(dataframe[0].kurt())
+    elif filename.endswith('.xls') or filename.endswith('.xlsx'):
+        print("PM2.5: "+str(dataframe["PM2.5"].kurt()))
     print()
 
 def main():
@@ -84,8 +124,11 @@ def main():
         print("1. Select file")
         print("2. Print current file")
         print("3. Calculate mean")
-        print("4. Calculate median")
-        print("5. Calculate mean")
+        print("4. Calculate max")
+        print("5. Calculate min")
+        print("6. Calculate standard deviation")
+        print("7. Calculate skewness")
+        print("8. Calculate kurtosis")
         print("Q. Exit program")
         option = input("Enter option ")
         if option=='Q' or option=='q':
@@ -98,12 +141,47 @@ def main():
         elif option=='2':
             clear()
             print("option "+option+"\n")
-            print("File: ", filename)
-            print(dataframe)
+            if filename is None:
+                print("Select a file")
+            else:
+                print("File: ", filename)
+                print(dataframe)
         elif option=='3':
             clear()
             print("option "+option+"\n")
-            mean()
+            if filename is None:
+                print("Select a file")
+            else: mean()
+        elif option=='4':
+            clear()
+            print("option "+option+"\n")
+            if filename is None:
+                print("Select a file")
+            else: maxValue()
+        elif option=='5':
+            clear()
+            print("option "+option+"\n")
+            if filename is None:
+                print("Select a file")
+            else: minValue()
+        elif option=='6':
+            clear()
+            print("option "+option+"\n")
+            if filename is None:
+                print("Select a file")
+            else: standardDeviation()
+        elif option=='7':
+            clear()
+            print("option "+option+"\n")
+            if filename is None:
+                print("Select a file")
+            else: skewness()
+        elif option=='8':
+            clear()
+            print("option "+option+"\n")
+            if filename is None:
+                print("Select a file")
+            else: kurtosis()
         else:
             clear()
             print("option "+option+"\n")
