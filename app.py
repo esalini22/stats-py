@@ -86,7 +86,7 @@ def maxValue():
     print()
 
 def minValue():
-    print("max value")
+    print("min value")
     if filename.endswith('.txt'):
         print(dataframe[0].min())
     elif filename.endswith('.xls') or filename.endswith('.xlsx'):
