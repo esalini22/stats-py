@@ -2,7 +2,6 @@
 import pandas as pd
 import sys
 import os
-import statistics
 import math
 
 import tkinter as tk
@@ -11,6 +10,7 @@ tk.Tk().withdraw() # part of the import if you are not using other tkinter funct
 
 filename=None
 dataframe=None
+columns = ["PM2.5", "PM10"]
 
 #regresion multiple no va
 #inferencia no va
@@ -74,7 +74,13 @@ def mean():
     if filename.endswith('.txt'):
         print(dataframe[0].mean())
     elif filename.endswith('.xls') or filename.endswith('.xlsx'):
-        print("PM2.5: "+str(dataframe["PM2.5"].mean()))
+        calculated = False
+        for c in columns:
+            if c in dataframe.columns:
+                print(c+" mean: "+str(dataframe[c].mean()))
+                calculated = True
+        if calculated==False:
+            print("No columns available")
     print()
 
 def maxValue():
@@ -82,7 +88,14 @@ def maxValue():
     if filename.endswith('.txt'):
         print(dataframe[0].max())
     elif filename.endswith('.xls') or filename.endswith('.xlsx'):
-        print("PM2.5: "+str(dataframe["PM2.5"].max()))
+        calculated = False
+        for c in columns:
+            if c in dataframe.columns:
+                print(c+" max: "+str(dataframe[c].max()))
+                calculated = True
+        if calculated==False:
+            print("No columns available")
+        
     print()
 
 def minValue():
@@ -90,7 +103,13 @@ def minValue():
     if filename.endswith('.txt'):
         print(dataframe[0].min())
     elif filename.endswith('.xls') or filename.endswith('.xlsx'):
-        print("PM2.5: "+str(dataframe["PM2.5"].min()))
+        calculated = False
+        for c in columns:
+            if c in dataframe.columns:
+                print(c+" min: "+str(dataframe[c].min()))
+                calculated = True
+        if calculated==False:
+            print("No columns available")
     print()
 
 def standardDeviation():
@@ -98,7 +117,13 @@ def standardDeviation():
     if filename.endswith('.txt'):
         print(dataframe[0].std())
     elif filename.endswith('.xls') or filename.endswith('.xlsx'):
-        print("PM2.5: "+str(dataframe["PM2.5"].std()))
+        calculated = False
+        for c in columns:
+            if c in dataframe.columns:
+                print(c+" std: "+str(dataframe[c].std()))
+                calculated = True
+        if calculated==False:
+            print("No columns available")
     print()
 
 def skewness():
@@ -106,7 +131,13 @@ def skewness():
     if filename.endswith('.txt'):
         print(dataframe[0].skew())
     elif filename.endswith('.xls') or filename.endswith('.xlsx'):
-        print("PM2.5: "+str(dataframe["PM2.5"].skew()))
+        calculated = False
+        for c in columns:
+            if c in dataframe.columns:
+                print(c+" skewness: "+str(dataframe[c].skew()))
+                calculated = True
+        if calculated==False:
+            print("No columns available")
     print()
 
 def kurtosis():
@@ -114,7 +145,13 @@ def kurtosis():
     if filename.endswith('.txt'):
         print(dataframe[0].kurt())
     elif filename.endswith('.xls') or filename.endswith('.xlsx'):
-        print("PM2.5: "+str(dataframe["PM2.5"].kurt()))
+        calculated = False
+        for c in columns:
+            if c in dataframe.columns:
+                print(c+" kurtosis: "+str(dataframe[c].kurt()))
+                calculated = True
+        if calculated==False:
+            print("No columns available")
     print()
 
 def main():
