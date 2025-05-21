@@ -3,6 +3,7 @@ import pandas as pd
 import sys
 import os
 import math
+import openpyxl
 
 import tkinter as tk
 from tkinter.filedialog import askopenfilename
@@ -40,7 +41,14 @@ def openFile():
         print("File: ", filename)
         table = {}
         if filename.endswith('.xls') or filename.endswith('.xlsx'):
-            dataframe = pd.read_excel(filename, header=None)
+            wb = openpyxl.load_workbook(filename) 
+            print("Sheets: ")
+            for sheet in wb.sheetnames:
+                print(sheet)
+            option = ""
+            while option not in wb.sheetnames:
+                option = input("Enter option: ")
+            dataframe = pd.read_excel(filename, sheet_name=option, header=None)
             for i in range(len(dataframe.columns)):
                 key = ""
                 skip = False
